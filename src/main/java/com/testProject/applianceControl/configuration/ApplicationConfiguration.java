@@ -1,0 +1,21 @@
+package com.testProject.applianceControl.configuration;
+
+import org.modelmapper.ModelMapper;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+public class ApplicationConfiguration {
+    @Bean
+    public ModelMapper modelMapper() {
+        final ModelMapper modelMapper = new ModelMapper();
+        modelMapper.getConfiguration()
+                .setFieldMatchingEnabled(true)
+                .setFieldAccessLevel(org.modelmapper.config.Configuration.AccessLevel.PRIVATE);
+
+        /*modelMapper.getTypeMap(ApplianceStateEntity.class, ApplianceStateResponse.class)
+                .addMapping(source -> source)
+        */
+        return modelMapper;
+    }
+}
