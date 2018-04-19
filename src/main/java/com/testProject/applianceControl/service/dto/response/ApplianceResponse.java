@@ -3,25 +3,39 @@ package com.testProject.applianceControl.service.dto.response;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.Getter;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-@Getter
 public class ApplianceResponse {
     @JsonProperty("id")
-    protected Long id;
+    private Long id;
     @JsonProperty("type")
-    protected String type;
+    private String type;
     @JsonProperty("model")
-    protected String model;
+    private String model;
     @JsonProperty("state")
     @JsonInclude(JsonInclude.Include.NON_NULL)
-    protected ApplianceStateResponse state;
+    private ApplianceStateResponse state;
 
     public ApplianceResponse() {
     }
 
     public void setState(ApplianceStateResponse state) {
         this.state = state;
+    }
+
+    public Long getId() {
+        return this.id;
+    }
+
+    public String getType() {
+        return this.type;
+    }
+
+    public String getModel() {
+        return this.model;
+    }
+
+    public ApplianceStateResponse getState() {
+        return this.state;
     }
 }

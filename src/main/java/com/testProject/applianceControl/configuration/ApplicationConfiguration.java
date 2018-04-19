@@ -12,10 +12,6 @@ public class ApplicationConfiguration {
         modelMapper.getConfiguration()
                 .setFieldMatchingEnabled(true)
                 .setFieldAccessLevel(org.modelmapper.config.Configuration.AccessLevel.PRIVATE);
-
-        /*modelMapper.getTypeMap(ApplianceStateEntity.class, ApplianceStateResponse.class)
-                .addMapping(source -> source)
-        */
         return modelMapper;
     }
 }

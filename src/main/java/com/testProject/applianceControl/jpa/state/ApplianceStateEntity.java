@@ -1,6 +1,5 @@
 package com.testProject.applianceControl.jpa.state;
 
-import lombok.Getter;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
@@ -9,12 +8,11 @@ import java.sql.Timestamp;
 
 @Entity
 @Table(name = "state")
-@Getter
 public class ApplianceStateEntity {
     @NotNull
-    protected Long applianceId;
+    private Long applianceId;
     @NotNull
-    protected State state;
+    private State state;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -42,6 +40,22 @@ public class ApplianceStateEntity {
 
     public void setState(String state) {
         this.state = State.valueOf(state);
+    }
+
+    public Long getApplianceId() {
+        return this.applianceId;
+    }
+
+    public State getState() {
+        return this.state;
+    }
+
+    public Long getId() {
+        return this.id;
+    }
+
+    public Timestamp getTimestamp() {
+        return this.timestamp;
     }
 
     public enum State {
